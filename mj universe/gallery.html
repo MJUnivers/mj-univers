@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MJ Universe - Gallery</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080808;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #101010;
+    padding: 22px 8%;
+    border-bottom: 1px solid #b79545;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d8b65c;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-decoration: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav a:hover {
+    color: #d8b65c;
+}
+
+.hero {
+    text-align: center;
+    padding: 75px 20px;
+    background: radial-gradient(circle, #493719, #080808 75%);
+}
+
+.hero h1 {
+    color: #e2c36d;
+    font-size: clamp(35px, 7vw, 60px);
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+main {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #e2c36d;
+    margin-bottom: 35px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.photo {
+    background: #171717;
+    border: 1px solid #51401f;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.photo:hover {
+    transform: translateY(-7px);
+    border-color: #e2c36d;
+}
+
+.photo img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+}
+
+.photo h3 {
+    color: #e2c36d;
+    padding: 17px;
+    text-align: center;
+}
+
+.viewer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.viewer img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    background: none;
+}
+
+footer {
+    background: #101010;
+    border-top: 1px solid #51401f;
+    text-align: center;
+    padding: 25px;
+    color: #999;
+    margin-top: 60px;
+}
+
+@media(max-width: 700px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">MJ UNIVERSE</a>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="radio.html">Radio</a>
+        <a href="forum.html">Forum</a>
+        <a href="albums.html">Albums</a>
+        <a href="gallery.html">Gallery</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>MJ GALLERY</h1>
+    <p>Discover the legendary moments of the King of Pop.</p>
+</section>
+
+<main>
+
+    <h2>📸 THE PHOTO COLLECTION</h2>
+
+    <div class="gallery">
+
+        <div class="photo">
+            <img src="images/thriller.jpg" alt="Michael Jackson Thriller era" onclick="openPhoto(this)">
+            <h3>THRILLER ERA</h3>
+        </div>
+
+        <div class="photo">
+            <img src="images/bad.jpg" alt="Michael Jackson Bad era" onclick="openPhoto(this)">
+            <h3>BAD ERA</h3>
+        </div>
+
+        <div class="photo">
+            <img src="images/dangerous.jpg" alt="Michael Jackson Dangerous era" onclick="openPhoto(this)">
+            <h3>DANGEROUS ERA</h3>
+        </div>
+
+        <div class="photo">
+            <img src="images/history.jpg" alt="Michael Jackson HIStory era" onclick="openPhoto(this)">
+            <h3>HISTORY ERA</h3>
+        </div>
+
+        <div class="photo">
+            <img src="images/concert.jpg" alt="Michael Jackson live concert" onclick="openPhoto(this)">
+            <h3>LIVE CONCERTS</h3>
+        </div>
+
+        <div class="photo">
+            <img src="images/moonwalk.jpg" alt="Michael Jackson dancing" onclick="openPhoto(this)">
+            <h3>LEGENDARY DANCE</h3>
+        </div>
+
+    </div>
+
+</main>
+
+<div class="viewer" id="viewer" onclick="closePhoto()">
+    <button class="close" aria-label="Close">&times;</button>
+    <img id="largePhoto" alt="Enlarged Michael Jackson photo">
+</div>
+
+<footer>
+    <p>MJ UNIVERSE © 2026 - Fan-made website</p>
+    <p>Not affiliated with Michael Jackson's estate.</p>
+</footer>
+
+<script>
+function openPhoto(photo) {
+    document.getElementById("largePhoto").src = photo.src;
+    document.getElementById("viewer").style.display = "flex";
+}
+
+function closePhoto() {
+    document.getElementById("viewer").style.display = "none";
+}
+</script>
+
+</body>
+</html>
