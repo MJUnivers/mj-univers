@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJ Radio - MJ Universe</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #080808;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: #101010;
+            border-bottom: 1px solid #b79545;
+        }
+
+        .logo {
+            color: #d8b65c;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d8b65c;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 75px 20px 55px;
+            background: radial-gradient(circle, #493719, #080808 75%);
+        }
+
+        .hero h1 {
+            color: #e2c36d;
+            font-size: clamp(38px, 7vw, 65px);
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #ddd;
+            font-size: 17px;
+        }
+
+        .radio-section {
+            max-width: 1000px;
+            margin: 45px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .radio-section h2 {
+            color: #e2c36d;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        .player {
+            background: #171717;
+            border: 1px solid #a88943;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+
+        .player iframe {
+            width: 100%;
+            height: 352px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .player p {
+            color: #aaa;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .albums {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .album {
+            background: #171717;
+            border: 1px solid #51401f;
+            padding: 25px 15px;
+            border-radius: 9px;
+            transition: 0.3s;
+        }
+
+        .album:hover {
+            transform: translateY(-6px);
+            border-color: #e2c36d;
+        }
+
+        .album h3 {
+            color: #e2c36d;
+            margin-bottom: 12px;
+        }
+
+        .album p {
+            color: #bbb;
+            margin-bottom: 20px;
+        }
+
+        .album a {
+            display: inline-block;
+            background: #c5a34d;
+            color: black;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .album a:hover {
+            background: white;
+        }
+
+        .back {
+            display: inline-block;
+            margin: 35px;
+            color: #e2c36d;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #101010;
+            border-top: 1px solid #51401f;
+            color: #999;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo">MJ UNIVERSE</a>
+
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="radio.html">Radio</a>
+            <a href="index.html#forum">Forum</a>
+            <a href="index.html#albums">Albums</a>
+            <a href="index.html#gallery">Galerie</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>MJ RADIO</h1>
+        <p>Listen to the King of Pop.</p>
+    </section>
+
+    <section class="radio-section">
+
+        <h2>🎧 THE MICHAEL JACKSON PLAYER</h2>
+
+        <div class="player">
+
+            <iframe
+                src="https://open.spotify.com/embed/artist/3fMbdgg4jU18AjLCKBhRSm?utm_source=generator&theme=0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+            </iframe>
+
+            <p>
+                Lecteur officiel Spotify.
+                La lecture peut nécessiter un compte Spotify.
+            </p>
+
+        </div>
+
+        <h2>💿 EXPLORE HIS ALBUMS</h2>
+
+        <div class="albums">
+
+            <div class="album">
+                <h3>THRILLER</h3>
+                <p>1982</p>
+                <a href="https://open.spotify.com/search/Thriller%20Michael%20Jackson/albums"
+                   target="_blank" rel="noopener noreferrer">
+                    LISTEN
+                </a>
+            </div>
+
+            <div class="album">
+                <h3>BAD</h3>
+                <p>1987</p>
+                <a href="https://open.spotify.com/search/Bad%20Michael%20Jackson/albums"
+                   target="_blank" rel="noopener noreferrer">
+                    LISTEN
+                </a>
+            </div>
+
+            <div class="album">
+                <h3>DANGEROUS</h3>
+                <p>1991</p>
+                <a href="https://open.spotify.com/search/Dangerous%20Michael%20Jackson/albums"
+                   target="_blank" rel="noopener noreferrer">
+                    LISTEN
+                </a>
+            </div>
+
+            <div class="album">
+                <h3>HISTORY</h3>
+                <p>1995</p>
+                <a href="https://open.spotify.com/search/HIStory%20Michael%20Jackson/albums"
+                   target="_blank" rel="noopener noreferrer">
+                    LISTEN
+                </a>
+            </div>
+
+            <div class="album">
+                <h3>INVINCIBLE</h3>
+                <p>2001</p>
+                <a href="https://open.spotify.com/search/Invincible%20Michael%20Jackson/albums"
+                   target="_blank" rel="noopener noreferrer">
+                    LISTEN
+                </a>
+            </div>
+
+        </div>
+
+        <a href="index.html" class="back">
+            ← BACK TO HOME
+        </a>
+
+    </section>
+
+    <footer>
+        <p>MJ UNIVERSE © 2026 - Fan-made website</p>
+        <p>Not affiliated with Michael Jackson's estate.</p>
+    </footer>
+
+</body>
+</html>

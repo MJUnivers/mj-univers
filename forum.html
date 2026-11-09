@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fan Forum - MJ Universe</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080808;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #101010;
+    border-bottom: 1px solid #b79545;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d8b65c;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-decoration: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav a:hover {
+    color: #d8b65c;
+}
+
+.hero {
+    text-align: center;
+    padding: 65px 20px;
+    background: radial-gradient(circle, #493719, #080808 75%);
+}
+
+.hero h1 {
+    color: #e2c36d;
+    font-size: clamp(35px, 7vw, 55px);
+    margin-bottom: 15px;
+}
+
+main {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    color: #e2c36d;
+    margin-bottom: 20px;
+}
+
+.form {
+    background: #171717;
+    border: 1px solid #8e7137;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 35px;
+}
+
+input, textarea, select {
+    width: 100%;
+    background: #090909;
+    color: white;
+    border: 1px solid #51401f;
+    padding: 13px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+button {
+    background: #c5a34d;
+    color: black;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: white;
+}
+
+.post {
+    background: #171717;
+    border: 1px solid #51401f;
+    border-radius: 9px;
+    padding: 22px;
+    margin-bottom: 18px;
+}
+
+.post h3 {
+    color: #e2c36d;
+    margin: 12px 0;
+}
+
+.post p {
+    color: #ddd;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.post-info {
+    color: #999;
+    font-size: 13px;
+}
+
+.like {
+    margin-top: 17px;
+}
+
+.category {
+    display: inline-block;
+    color: #e2c36d;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+footer {
+    background: #101010;
+    border-top: 1px solid #51401f;
+    text-align: center;
+    padding: 25px;
+    color: #999;
+    margin-top: 60px;
+}
+
+@media(max-width: 700px) {
+    header {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">MJ UNIVERSE</a>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="radio.html">Radio</a>
+        <a href="forum.html">Forum</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>FAN FORUM</h1>
+    <p>Welcome to the Michael Jackson fan community.</p>
+</section>
+
+<main>
+
+    <h2>💬 CREATE A DISCUSSION</h2>
+
+    <div class="form">
+
+        <input
+            type="text"
+            id="username"
+            maxlength="25"
+            placeholder="Your nickname"
+        >
+
+        <input
+            type="text"
+            id="title"
+            maxlength="80"
+            placeholder="Discussion title"
+        >
+
+        <select id="category">
+            <option value="Albums">Albums</option>
+            <option value="Music">Music</option>
+            <option value="Concerts">Concerts</option>
+            <option value="Clips">Music Videos</option>
+            <option value="General">General Discussion</option>
+        </select>
+
+        <textarea
+            id="message"
+            maxlength="1000"
+            placeholder="Write your message..."
+        ></textarea>
+
+        <button onclick="createPost()">
+            PUBLISH DISCUSSION
+        </button>
+
+    </div>
+
+    <h2>🌍 LATEST DISCUSSIONS</h2>
+
+    <div id="posts"></div>
+
+</main>
+
+<footer>
+    <p>MJ UNIVERSE © 2026</p>
+    <p>Fan-made community - Not officially affiliated with Michael Jackson's estate.</p>
+</footer>
+
+<script>
+
+const initialPosts = [
+    {
+        username: "MJFan",
+        title: "What is your favorite album?",
+        message: "For me, Dangerous is an incredible album!",
+        category: "Albums",
+        likes: 3
+    },
+    {
+        username: "KingOfPop",
+        title: "Favorite Michael Jackson song?",
+        message: "Mine is Smooth Criminal!",
+        category: "Music",
+        likes: 5
+    }
+];
+
+let posts = initialPosts;
+
+function displayPosts() {
+
+    const container = document.getElementById("posts");
+    container.replaceChildren();
+
+    posts.forEach((post, index) => {
+
+        const article = document.createElement("article");
+        article.className = "post";
+
+        const author = document.createElement("div");
+        author.className = "post-info";
+        author.textContent = "👤 " + post.username;
+
+        const title = document.createElement("h3");
+        title.textContent = post.title;
+
+        const message = document.createElement("p");
+        message.textContent = post.message;
+
+        const category = document.createElement("div");
+        category.className = "category";
+        category.textContent = "CATEGORY: " + post.category;
+
+        const like = document.createElement("button");
+        like.className = "like";
+        like.textContent = "❤️ " + post.likes + " Likes";
+
+        like.addEventListener("click", () => {
+            posts[index].likes++;
+            displayPosts();
+        });
+
+        article.append(author, title, message, category, like);
+        container.appendChild(article);
+    });
+}
+
+function createPost() {
+
+    const username = document.getElementById("username").value.trim();
+    const title = document.getElementById("title").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const category = document.getElementById("category").value;
+
+    if (!username || !title || !message) {
+        alert("Please complete all fields!");
+        return;
+    }
+
+    posts.unshift({
+        username: username,
+        title: title,
+        message: message,
+        category: category,
+        likes: 0
+    });
+
+    document.getElementById("username").value = "";
+    document.getElementById("title").value = "";
+    document.getElementById("message").value = "";
+
+    displayPosts();
+}
+
+displayPosts();
+
+</script>
+
+</body>
+</html>

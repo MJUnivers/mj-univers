@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJ Universe - Michael Jackson Fan Community</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #080808;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background: #101010;
+            border-bottom: 1px solid #b79545;
+        }
+
+        .logo {
+            color: #d8b65c;
+            font-size: 27px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d8b65c;
+        }
+
+        .hero {
+            min-height: 520px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background:
+                radial-gradient(ellipse at center, #493719, #15100a 45%, #080808 80%);
+        }
+
+        .hero h1 {
+            color: #e2c36d;
+            font-size: clamp(35px, 7vw, 65px);
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #c5a34d;
+            color: #080808;
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: white;
+            transform: scale(1.05);
+        }
+
+        .section {
+            padding: 65px 8%;
+            text-align: center;
+        }
+
+        .section h2 {
+            color: #d8b65c;
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: #171717;
+            border: 1px solid #51401f;
+            padding: 35px 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #e2c36d;
+        }
+
+        .card h3 {
+            color: #e2c36d;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #bbb;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            color: #e2c36d;
+            text-decoration: none;
+        }
+
+        footer {
+            background: #101010;
+            border-top: 1px solid #51401f;
+            padding: 25px;
+            text-align: center;
+            color: #999;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">MJ UNIVERSE</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="radio.html">Radio</a>
+           <a href="forum.html">Forum</a>
+            <a href="albums.html">Albums</a>
+           <a href="gallery.html">Gallery</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>WELCOME TO MJ UNIVERSE</h1>
+
+        <p>The ultimate Michael Jackson fan community.</p>
+
+        <a href="radio.html" class="button">EXPLOREZ L'UNIVERS</a>
+    </section>
+
+    <section class="section">
+        <h2>EXPLORE MJ UNIVERSE</h2>
+
+        <div class="cards">
+
+            <div class="card" id="radio">
+                <h3>🎵 MJ RADIO</h3>
+                <p>Discover the music of the King of Pop.</p>
+                <a href="radio.html">Listen now</a>
+            </div>
+
+            <div class="card" id="forum">
+                <h3>💬 FAN FORUM</h3>
+                <p>Meet fans and share your passion.</p>
+                <a href="forum.html">ENTER FORUM</a>
+            </div>
+
+           <div class="card" id="albums">
+    <h3>💿 DISCOGRAPHY</h3>
+    <p>Explore Michael Jackson's albums.</p>
+    <a href="albums.html">ENTER DISCOGRAPHY</a>
+</div>
+            <div class="card" id="gallery">
+    <h3>📸 GALLERY</h3>
+    <p>Discover unforgettable moments.</p>
+    <a href="gallery.html">ENTER GALLERY</a>
+</div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>MJ UNIVERSE © 2026 - Fan-made website</p>
+        <p>Not affiliated with Michael Jackson's estate.</p>
+    </footer>
+
+</body>
+</html>
